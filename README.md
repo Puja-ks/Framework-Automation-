@@ -1,6 +1,5 @@
 **Introduction**
-This project is an automated testing framework designed for an e-commerce web application. 
-The primary objective is to ensure the reliability and functionality of the application by automating the testing process, reducing manual effort, and increasing test coverage. 
+This project is an automated testing framework designed for an e-commerce web application.  
 The framework utilizes Selenium for web automation, Java for scripting test cases, TestNG for test management, Page Object Model (POM) for structuring tests, and Extent Reports for detailed test reporting.
 
 **Technologies Used**
