@@ -21,7 +21,7 @@ Jenkins (for CI integration)
 
 **Setup and Installation**
 1.Clone the Repository
-git clone https://github.com/your-username/ecommerce-automation-framework.git
+git clone https://github.com/your-username/Framework-Automation.git
 cd ecommerce-automation-framework
 2.Install Dependencies
 Ensure you have Apache Maven installed. Run the following command to install all necessary dependencies:
