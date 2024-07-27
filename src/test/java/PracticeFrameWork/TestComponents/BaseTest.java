@@ -22,104 +22,79 @@ import org.testng.annotations.BeforeMethod;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import Puja.pageobjects.LandingPage; 
+import framework.pageobjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-
-
 public class BaseTest {
-	
-	public WebDriver  driver ;
+
+	public WebDriver driver;
 	public LandingPage landingPage;
-	public WebDriver initializeDriver() throws IOException
-	{
-		
+
+	public WebDriver initializeDriver() throws IOException {
+
 		WebDriverManager.chromedriver().setup();
-	   driver = new ChromeDriver(); 
-	 /*   Properties  pro = new Properties();
-	FileInputStream f = 
-    new FileInputStream("C:\\Users\\HP\\eclipse-workspace\\PracticeFrameWork\\src\\main\\java\\Resources\\Globaldata.properties");
-				//stem.getProperty("user.dir")+"src\\main\\java\\Resources//obaldata.properties");
-	
-	 int i=f.read();  
-     System.out.print((char)i);    
+		driver = new ChromeDriver();
+		/*
+		 * Properties pro = new Properties(); FileInputStream f = new FileInputStream(
+		 * "C:\\Users\\HP\\eclipse-workspace\\PracticeFrameWork\\src\\main\\java\\Resources\\Globaldata.properties"
+		 * ); //stem.getProperty("user.dir")+
+		 * "src\\main\\java\\Resources//obaldata.properties");
+		 * 
+		 * int i=f.read(); System.out.print((char)i);
+		 * 
+		 * //pro.load(f); // System.out .println("The driver is " +f);
+		 * 
+		 * 
+		 * String browserName = pro.getProperty("browser");
+		 * 
+		 * System.out .println("The driver3 is " +browserName);
+		 * 
+		 * if(browserName.equalsIgnoreCase("ChromeDriver")) {
+		 * WebDriverManager.chromedriver().setup(); driver = new ChromeDriver();
+		 * System.out .println("The driver2 is " +driver); }
+		 * 
+		 * else if(browserName.equalsIgnoreCase( "firefox")) {
+		 * WebDriverManager.firefoxdriver().setup(); driver = new FirefoxDriver(); }
+		 * 
+		 * 
+		 * else if(browserName.equalsIgnoreCase("edge")) {
+		 * WebDriverManager.edgedriver().setup(); driver = new EdgeDriver(); }
+		 */
 
-		//pro.load(f);
-	//	System.out .println("The driver is " +f);
-	    
-		
-	String browserName = pro.getProperty("browser");
-	
-	System.out .println("The driver3 is " +browserName);
-    
-	if(browserName.equalsIgnoreCase("ChromeDriver"))		
-		{ 
-		    	WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            System.out .println("The driver2 is " +driver);
-		}
-		
-		else if(browserName.equalsIgnoreCase( "firefox"))
-				{
-			WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-				}
-		
-
-		else if(browserName.equalsIgnoreCase("edge"))
-				{
-			WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-				}*/
-
-		
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		return driver;
 	}
-	
 
- public List<HashMap<String, String>> getJsonDataToMap(String filepath) throws IOException
-	{
+	public List<HashMap<String, String>> getJsonDataToMap(String filepath) throws IOException {
 		String p = FileUtils.readFileToString(new File(
-				// System.getProperty("user.dir") +"\\src\\test\\java\\PracticeFrameWork\\Data\\PurchaseOrder1.json" ),
-			filepath),	StandardCharsets.UTF_8);
+				// System.getProperty("user.dir")
+				// +"\\src\\test\\java\\PracticeFrameWork\\Data\\PurchaseOrder1.json" ),
+				filepath), StandardCharsets.UTF_8);
 		ObjectMapper mapper = new ObjectMapper();
-		  List<HashMap<String, String>> data = mapper.readValue(p, new TypeReference<List<HashMap<String, String>>>() {
-	      });
-		  return data;
+		List<HashMap<String, String>> data = mapper.readValue(p, new TypeReference<List<HashMap<String, String>>>() {
+		});
+		return data;
 	}
 
- 
- 
- 
-
-	
-	public String getScreenshots(String TestCaseName , WebDriver driver) throws IOException
-	{
-		TakesScreenshot s = (TakesScreenshot)driver;
-		File source = s.getScreenshotAs(OutputType.FILE) ;
-		File Des = new File(System.getProperty("user.dir" + "//reports//" +TestCaseName+ ".png"));
-		FileUtils.copyFile(source,Des);
-		return (System.getProperty("user.dir" + "//reports//" +TestCaseName+ ".png"));
+	public String getScreenshots(String TestCaseName, WebDriver driver) throws IOException {
+		TakesScreenshot s = (TakesScreenshot) driver;
+		File source = s.getScreenshotAs(OutputType.FILE);
+		File Des = new File(System.getProperty("user.dir" + "//reports//" + TestCaseName + ".png"));
+		FileUtils.copyFile(source, Des);
+		return (System.getProperty("user.dir" + "//reports//" + TestCaseName + ".png"));
 	}
-	
 
-	@BeforeMethod(alwaysRun=true)
-	public LandingPage launchApplication() throws IOException
-	{ 
-	    driver = initializeDriver();
-	   		landingPage = new LandingPage(driver);
+	@BeforeMethod(alwaysRun = true)
+	public LandingPage launchApplication() throws IOException {
+		driver = initializeDriver();
+		landingPage = new LandingPage(driver);
 		landingPage.goTo();
 		return landingPage;
 	}
-	
-	
-	@AfterMethod(alwaysRun=true)
-	public void teardown() 
-	{
-	driver.close();
-	} 
-}
-	
 
+	@AfterMethod(alwaysRun = true)
+	public void teardown() {
+		driver.close();
+	}
+}

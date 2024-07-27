@@ -26,12 +26,12 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import PracticeFrameWork.TestComponents.BaseTest;
-import Puja.pageobjects.CartPage;
-import Puja.pageobjects.CheckOutPage;
-import Puja.pageobjects.ConfirmMessagPage;
-import Puja.pageobjects.LandingPage;
-import Puja.pageobjects.OrderPage;
-import Puja.pageobjects.ProductCatalogue;
+import framework.pageobjects.CartPage;
+import framework.pageobjects.CheckOutPage;
+import framework.pageobjects.ConfirmMessagPage;
+import framework.pageobjects.LandingPage;
+import framework.pageobjects.OrderPage;
+import framework.pageobjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
 //import rahulshettyacademy.pageobjects.LandingPage;
 
