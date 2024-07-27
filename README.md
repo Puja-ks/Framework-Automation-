@@ -9,7 +9,7 @@ The framework utilizes Selenium for web automation, Java for scripting test case
 
 **Java:** Programming language used for writing test scripts.
 
-****TestNG: Testing framework for managing test cases.
+**TestNG:** Testing framework for managing test cases.
 
 **Page Object Model (POM)**: Design pattern for creating object repositories for web UI elements.
 
