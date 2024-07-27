@@ -24,23 +24,23 @@ Jenkins (for CI integration)
 **Setup and Installation**
 
 1.Clone the Repository
-git clone https://github.com/your-username/Framework-Automation.git
-cd ecommerce-automation-framework
-
+**git clone https://github.com/your-username/Framework-Automation.git
+**
 2.Install Dependencies
-Ensure you have Apache Maven installed. Run the following command to install all necessary dependencies:
-mvn clean install
+Ensure you have Apache Maven installed. 
+Run the following command to install all necessary dependencies:
+**mvn clean install**
 
 3.Configure WebDriver
 Download the appropriate WebDriver for your browser (e.g., ChromeDriver, GeckoDriver) and update the path in the configuration file.
+
 4.Run Tests
+
 5.Execute the test suite using Maven
-mvn test
-6.Running Tests
-7.To execute tests, use the following command:
-mvn clean test
-8.For generating Extent Reports, ensure the following configuration is present in the testng.xml file:
-<listeners>
+**mvn test**
+
+6.For generating Extent Reports, ensure the following configuration is present in the testng.xml file:
+**<listeners>
     <listener class-name="com.aventstack.extentreports.testng.listener.ExtentITestListenerAdapter"/>
-</listeners>
+</listeners>**
 
